@@ -28,4 +28,3 @@ def user_search_controller(criteria):
 
 
 
-
