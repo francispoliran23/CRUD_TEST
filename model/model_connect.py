@@ -17,10 +17,11 @@ class model_connect():
         result = self.cur.fetchall()
         if len(result)>0:
        
-         return make_response({"Product_details":result}, 200)
+          return make_response({"Product_details":result}, 200)
+         
         
         else:
-            return make_response({"Message": "No data Found"}, 204)
+          return {"Message": "No data Found"}
 
     
     def user_add_model(self, data):
@@ -32,7 +33,7 @@ class model_connect():
        if self.cur.rowcount>0:
           return make_response({"Message": "Updating data sucessfully"}, 202)
        else:
-           return make_response({"Message": "Nothing to Update"}, 304) 
+           return {"Message": "Nothing to Update"}
        
 
     def user_delete_model(self, id):
@@ -40,18 +41,28 @@ class model_connect():
        if self.cur.rowcount>0:
           return make_response({"Message": "Deleting Successfully"}, 202)
        else:
-          return make_response({"Message": "Nothing to Delete"}, 304)
+          return {"Message": "Nothing to Delete"}
           
        
        
     def user_search_model(self, criteria):
         
-        query = (f"SELECT * FROM users WHERE name LIKE '%{criteria}%' OR description LIKE '%{criteria}%' OR category LIKE '%{criteria}%' OR id LIKE '%{criteria}%'")
-        self.cur.execute(query)
+        query1 = (f"SELECT * FROM users WHERE name LIKE '%{criteria}%' OR description LIKE '%{criteria}%' OR category LIKE '%{criteria}%' OR id LIKE '%{criteria}%'")
+        self.cur.execute(query1)
         result = self.cur.fetchall()
         if len(result) > 0:
             return make_response({"Search_results": result}, 200)
         else:
             return make_response({"Message": "No matching records found"}, 404)
         
+
+# git init .
+# git add .
+# git commit -m ""
+# git remote add origin https://github.com/francispoliran23/CRUD_TEST.git
+# git push origin master 
+# git push --set-upstream origin master
+# git add .
+# git commit -m '""
+# git push
 
