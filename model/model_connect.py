@@ -18,6 +18,7 @@ class model_connect():
         if len(result)>0:
        
           return make_response({"Product_details":result}, 200)
+     
          
         
         else:
@@ -47,7 +48,7 @@ class model_connect():
        
     def user_search_model(self, criteria):
         
-        query1 = (f"SELECT * FROM users WHERE name LIKE '%{criteria}%' OR description LIKE '%{criteria}%' OR category LIKE '%{criteria}%' OR id LIKE '%{criteria}%'")
+        query1 = (f"SELECT * FROM users WHERE name LIKE '%{criteria}%' OR price LIKE '%{criteria}%' OR description LIKE '%{criteria}%' OR category LIKE '%{criteria}%' OR id LIKE '%{criteria}%'")
         self.cur.execute(query1)
         result = self.cur.fetchall()
         if len(result) > 0:
