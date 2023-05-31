@@ -19,3 +19,8 @@ def user_update_controller():
 @app.route("/user/deleting/<id>", methods=["DELETE"])
 def user_deleting_controller(id):
     return object.user_delete_model(id)
+
+
+
+
+# lhfdkjhdsjfhkjshkfsh
