@@ -40,7 +40,9 @@ class model_connect():
        if self.cur.rowcount>0:
           return make_response({"Message": "Deleting Successfully"}, 202)
        else:
-           return make_response({"Message": "Nothing to Delete"}, 304)
+          return make_response({"Message": "Nothing to Delete"}, 304)
+          
+       
        
     def user_search_model(self, criteria):
         
