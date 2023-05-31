@@ -42,5 +42,12 @@ class model_connect():
        else:
            return make_response({"Message": "Nothing to Delete"}, 304)
        
-
-    #    kdhfdskhjfkhasjkfhsahfdjkhas
+    def user_search_model(self, criteria):
+        
+        query = f"SELECT * FROM users WHERE name LIKE '%{criteria}%' OR description LIKE '%{criteria}%' OR category LIKE '%{criteria}%'"
+        self.cur.execute(query)
+        result = self.cur.fetchall()
+        if len(result) > 0:
+            return make_response({"Search_results": result}, 200)
+        else:
+            return make_response({"Message": "No matching records found"}, 404)
