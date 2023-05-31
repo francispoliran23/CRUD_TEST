@@ -52,10 +52,4 @@ class model_connect():
         else:
             return make_response({"Message": "No matching records found"}, 404)
         
-    def user_get_model(self, id, name, price, description, category):
-       self.cur.execute(f"SELECT * FROM users WHERE id={id} OR WHERE id={name} OR WHERE id={price} OR WHERE id={description} OR WHERE id={category}")
-       result = self.cur.fetchone()
-       if result:
-           return make_response({"User_details": result}, 200)
-       else:
-           return make_response({"Message": "User not found"}, 404)
+
