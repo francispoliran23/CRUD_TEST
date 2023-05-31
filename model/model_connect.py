@@ -44,7 +44,7 @@ class model_connect():
        
     def user_search_model(self, criteria):
         
-        query = f"SELECT * FROM users WHERE name LIKE '%{criteria}%' OR description LIKE '%{criteria}%' OR category LIKE '%{criteria}%'"
+        query = (f"SELECT * FROM users WHERE name LIKE '%{criteria}%' OR description LIKE '%{criteria}%' OR category LIKE '%{criteria}%' OR id LIKE '%{criteria}%'")
         self.cur.execute(query)
         result = self.cur.fetchall()
         if len(result) > 0:

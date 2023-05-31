@@ -21,7 +21,7 @@ def user_deleting_controller(id):
     return object.user_delete_model(id)
 
 
-@app.route("/user/search/<criteria>")
+@app.route("/user/search/<criteria>",methods="GET" )
 def user_search_controller(criteria):
     return object.user_search_model(criteria)
 
